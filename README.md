@@ -1,87 +1,56 @@
-# Project Title
+# Project DAW 1
 
-One Paragraph of project description goes here
+Welcome in the page of Project DAW1
 
-## Getting Started
+## Wait, what's this?
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Project DAW1 is a project developed by a team of 4 students of the university of Las Palmas de Gran Canaria.
+It's about developing a website using the main strategies for team-working and designing.
 
-### Prerequisites
+### What's our language?
+We're coding the website using
+  * HTML&Bootstrap (for pages and layouts)
+  * JavaScript (in future)
+  * JQuery
+  * Ruby & Rails
 
-What things you need to install the software and how to install them
+### Bootstrap
 
+## Why using it?
+
+We think that bootstrap it's a safer and faster way to develop a website page layout.
+In Bootstrap indeed you don't need the 'css file' because you can use the standard class offered by it.
+Let's see an example:
+**HTML:**
 ```
-Give examples
+<div style="background-color:red;height=100%;"></div>
 ```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+**HTML&Bootstrap:**
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
+<div class="bg-red h-100"></div>
 ```
 
-### And coding style tests
+## What i should know before read the code?
+It's  higly recommendend to know at least the meaning of html's tags and the basics of bootstrap components:
+ * **Cards**
+ * **Wrappers**
+ * **Containers**
+ * **Nav**
+Also is good but not necessary (IMO) know the css standard options.
 
-Explain what these tests test and why
+### Updates
+We're going to improve the website to be ready for Sprint 2, and that means that we'll implement **JQuery**,**Ruby&rails**,**SQL** and connections with servers.
 
-```
-Give an example
-```
 
-## Deployment
+### What we've read to develop this project
 
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+* [getBootstrap](https://getbootstrap.com) - Useful website for learning about bootstrap.
+* [W3School](https://www.w3schools.com/) - Useful website for learning about HTML.
+* [StackOverflow](https://stackoverflow.com/) - Forum where you can discuss about IT.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* **Ludovico** -
+* **Andrea**
+* **Rafael**
+* **Giacomo**
