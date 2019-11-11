@@ -17,7 +17,6 @@
   <link href="css/modern-business.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 
 <body>
@@ -97,7 +96,7 @@
     <div class="row">
 
       <!-- Post Content Column -->
-      <div class="col-lg-8">
+      <div id="main" class="col-lg-8">
 
         <!-- Preview Image -->
         <img class="img-fluid rounded" src="images/imagecat.jpg" alt="">
@@ -132,15 +131,15 @@
         <hr>
 
         <!-- Comments Form -->
-        <div class="card my-4">
+        <div id="commentForm" class="card my-4">
           <h5 class="card-header">Leave a Comment: (work in progress)</h5>
           <div class="card-body">
             <form>
               <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea id="comment-content" class="form-control" rows="3"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            <button id="commentButton" class="btn btn-primary">Submit</button>
           </div>
         </div>
 
@@ -149,23 +148,13 @@
           <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
           <div class="media-body">
             <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
+           <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
             vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-            lacinia congue felis in faucibus.
+            lacinia congue felis in faucibus.<p>
           </div>
         </div>
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-            vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-            lacinia congue felis in faucibus.
-          </div>
-        </div>
-        <button class="btn btn-primary btn-lg">TEST</button>
-
       </div>
+      
 
       <!-- Sidebar Widgets Column -->
       <div class="col-md-4">
@@ -237,6 +226,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/comment.js"></script>
 
 </body>
 
