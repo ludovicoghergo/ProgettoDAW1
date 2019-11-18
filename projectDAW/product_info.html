@@ -59,8 +59,8 @@
                     <i class="fa fa-fw fa-user"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="login.html">Login</a>
-                <a class="dropdown-item" href="register.html">Register</a>
+                <a class="dropdown-item" href="portfolio-item.html">Login</a>
+                <a class="dropdown-item" href="portfolio-item.html">Register</a>
               </div>
             </li>
         </ul>
@@ -73,8 +73,7 @@
   <div class="container">
 
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">Product Type
-      <small>Name of the Product</small>
+    <h1 class="mt-4 mb-3" id="product_title">
     </h1>
 
     <ol class="breadcrumb">
@@ -133,11 +132,10 @@
 
         <!-- Single Comment -->
         <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+          <div id="motherComment">
           </div>
+
         </div>
 
       </div>
@@ -183,13 +181,13 @@
         <div class="card my-4">
           <h5 class="card-header">For future use</h5>
           <div class="card-body text-center">
-            Quantity : 35
+            Quantity :<a id="product_quantity"></a>
             <br>
-            Cost : 50.00$
+            Cost :<a id="product_cost"></a>
           </div>
           <div class="card-footer text-center">
             <a href="#" class="btn btn-primary  btn-lg">Order</a>
-            <a href="#" class="btn btn-primary  btn-lg">Buy Now</a>
+            <a href="#" id="product_buy_button" class="btn btn-primary  btn-lg">Buy Now</a>
           </div>
         </div>
 
@@ -212,7 +210,71 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+  checkCookie();
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200){
+     var obj = JSON.parse(this.responseText);
+     var user=getCookie("catalog_number");
+     document.getElementById("product_title").innerHTML = obj.catalog[user].title;
+     document.getElementById("product_quantity").innerHTML = obj.catalog[user].price;
+     document.getElementById("product_cost").innerHTML = obj.catalog[user].stock;
+     var i = 0;
+     while(obj.catalog[user].comments[i] != undefined){
+       document.getElementById("motherComment").innerHTML +='<div class="media mb-4">'+
+         '<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">'+
+         '<div class="media-body">'+
+           '<h5 class="mt-0">'+obj.catalog[user].comments[i].name+'</h5>'+
+           obj.catalog[user].comments[i].desc+
+         '</div>';
+         i++;
+     }
+   }
+  };
+  xmlhttp.open("GET", "catalog.json", true);
+  xmlhttp.send();
 
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
+    function checkCookie() {
+    var user=getCookie("catalog_number");
+    if (user != ""){
+      }
+    else {
+       alert("You shouldn't be here!");
+      }
+    }
+
+    $("#product_buy_button").click(function(e) {
+      e.preventDefault();
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+       if (this.readyState == 4 && this.status == 200){
+         var obj = JSON.parse(this.responseText);
+         var user=getCookie("catalog_number");
+         obj.catalog[user].stock = obj.catalog[user].stock - 1;
+       }
+      };
+      xmlhttp.open("GET", "catalog.json", true);
+      xmlhttp.send();
+     });
+
+  </script>
 </body>
 
 </html>

@@ -70,14 +70,15 @@
   <div class="container py-4">
 
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">Register
+    <h1 class="mt-4 mb-3">Portfolio 1
+      <small>Subheading</small>
     </h1>
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
         <a href="index.html">Home</a>
       </li>
-      <li class="breadcrumb-item active">Register</li>
+      <li class="breadcrumb-item active">Portfolio 1</li>
     </ol>
 
 
@@ -90,17 +91,17 @@
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="validationDefault01">First name</label>
-              <input type="text" class="form-control" id="validationDefault01" placeholder="Enter first name" minlength="1" maxlength="30" pattern="[a-z]{2,30}" required>
+              <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationDefault02">Last name</label>
-              <input type="text" class="form-control" id="validationDefault02" placeholder="Enter last name" value="" minlength="1" maxlength="30" pattern="[a-z]{2,30}" required>
+              <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Otto" required>
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6 mb-3">
-              <label for="validationAge">Date of birth</label>
-              <input type="date" class="form-control" id="date" placeholder="Enter Date" value="" max="2019-01-01" min="1900-01-01" required>
+              <label for="validationAge">Age</label>
+              <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationSex">Sex</label>
@@ -116,42 +117,32 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend2">@</span>
                 </div>
-                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Enter username" aria-describedby="inputGroupPrepend2" minlength="6" maxlength="30" required>
+                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
               </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationDefaultUsername">Email</label>
               <div class="input-group">
-                <input type="text" class="form-control" id="validationDefaultEmailName" placeholder="Enter email" aria-describedby="inputGroupPrepend2" minlength="1" maxlength="20" pattern="[a-z0-9._%+-]{1,30}" required>
+                <input type="text" class="form-control" id="validationDefaultEmailName" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend2">@</span>
                 </div>
-                <input type="text" class="form-control" id="validationDefaultEmailDomain" placeholder="Enter domain" aria-describedby="inputGroupPrepend2" minlength="1" maxlength="20" pattern="[a-Z]{1,30}" required>
+                <input type="text" class="form-control" id="validationDefaultEmailDomain" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
               </div>
-            </div>
-          </div>
-		  <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="password1">Password</label>
-              <input type="password" class="form-control" id="password1" placeholder="Enter password" minlength="6" maxlength="30" pattern="[a-zA-Z]{6,30}" required>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="password2">Repeat Password</label>
-              <input type="password" class="form-control" id="password2" placeholder="Enter password" minlength="6" maxlength="30" pattern="[a-zA-Z]{1,30}" required>
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="validationDefault03">City</label>
-              <input type="text" class="form-control" id="validationDefault03" placeholder="Enter city" minlength="1" maxlength="30" pattern="[a-zA-Z]{1,30}" required>
+              <input type="text" class="form-control" id="validationDefault03" placeholder="City" required>
             </div>
             <div class="col-md-3 mb-3">
               <label for="validationDefault04">State</label>
-              <input type="text" class="form-control" id="validationDefault04" placeholder="Enter state" minlength="1" maxlength="30" pattern="[a-zA-Z]{1,30}" required>
+              <input type="text" class="form-control" id="validationDefault04" placeholder="State" required>
             </div>
             <div class="col-md-3 mb-3">
-              <label for="validationDefault05">Zip code</label>
-              <input type="number" class="form-control" id="validationDefault05" placeholder="Enter zip code" minlength="1" maxlength="30" required>
+              <label for="validationDefault05">Zip</label>
+              <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
             </div>
           </div>
           <div class="form-group">
@@ -162,7 +153,7 @@
               </label>
             </div>
           </div>
-          <button class="btn btn-primary" type="submit" onclick="check()">Submit form</button>
+          <button class="btn btn-primary" type="submit">Submit form</button>
         </form>
       </div>
     </div>
@@ -180,16 +171,6 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script>
-	function check(){
-	  if (document.getElementById('password1').value != document.getElementById('password2').value) {
-	    document.getElementById('password1').setCustomValidity('Passwords must match');
-	    }
-      else {
-	    document.getElementById('password1').setCustomValidity('');
-	  }
-	}
-  </script>
 
 </body>
 
