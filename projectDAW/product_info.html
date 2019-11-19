@@ -62,8 +62,8 @@
               <i class="fa fa-fw fa-user"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="portfolio-item.html">Login</a>
-              <a class="dropdown-item" href="portfolio-item.html">Register</a>
+              <a class="dropdown-item" href="login.html">Login</a>
+              <a class="dropdown-item" href="register.html">Register</a>
             </div>
           </li>
         </ul>
@@ -76,8 +76,7 @@
   <div class="container">
 
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">Product Type
-      <small>Name of the Product</small>
+    <h1 class="mt-4 mb-3" id="product_title">
     </h1>
 
     <ol class="breadcrumb">
@@ -99,7 +98,7 @@
       <div id="main" class="col-lg-8">
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="images/imagecat.jpg" alt="">
+        <img class="img-fluid rounded" src="images/imagecat.jpg" alt="" id="product_img">
 
         <!-- Post Content -->
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error
@@ -144,15 +143,7 @@
         </div>
 
         <!-- Single Comment -->
-        <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-           <p> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-            vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-            lacinia congue felis in faucibus.<p>
-          </div>
-        </div>
+
       </div>
       
 
@@ -227,6 +218,55 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="./js/comment.js"></script>
+
+  <script>
+  checkCookie();
+
+  let req_get1 = new XMLHttpRequest();
+let url1 = "https://api.jsonbin.io/b/5dd1c659ee15a6060aa314bd";
+req_get1.open("GET", url1);
+req_get1.setRequestHeader("secret-key", "$2b$10$CwGL6myH0Hc1h3HRcEJHQuwa9u25Q2pT7/6to2MTUnyBoWBk2ClP.");
+req_get1.send(null);
+req_get1.onreadystatechange = handle_json1;
+async function handle_json1() {
+        if (req_get1.readyState == 4) {
+                if (req_get1.status == 200) {
+                        var json_data = await req_get1.responseText; // text download
+                        var the_object = await JSON.parse(json_data); // change text to JSON
+                        var user=await getCookie("catalog_number");
+                        //console.log(user);
+                        document.getElementById("product_title").innerHTML = the_object.products[user].name;
+                        //console.log(the_object.products[user].name);
+                }else {
+                alert('Wystąpił problem z wybranym adresem URL.');
+        }
+}
+}
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+    function checkCookie() {
+    var user=getCookie("catalog_number");
+    if (user != ""){
+      }
+    else {
+       console.log("You shouldn't be here!");
+      }
+    }
+  </script>
 
 </body>
 

@@ -2,28 +2,70 @@ let names = ["AARÓN", "ABELARDO", "ABRAÁM", "ABRAHÁN", "ADALBERTO ", "ADÁN",
 let regularContent = '\n<img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">\n<div class="media-body">\n  <h5 class="mt-0">Commenter Name</h5>\n  <p></p>\n</div>';
 let alert = '<div class="alert alert-danger">\n<strong>Error!</strong> Message can not be empty!\n</div>';
 let i = 0;
+let the_object=null;
 let content;
 let commentId;
+let req_get = new XMLHttpRequest();
+let req_put = new XMLHttpRequest();
+let url = "https://api.jsonbin.io/b/5dd2b5d0ad952a6f46ce3aff";
+req_get.onreadystatechange = handle_json;
+req_get.open("GET", url);
+req_get.setRequestHeader("secret-key", "$2b$10$CwGL6myH0Hc1h3HRcEJHQuwa9u25Q2pT7/6to2MTUnyBoWBk2ClP.");
+req_get.send(null);
+async function reload(){
+    location.reload();
+}
+function print_comments(the_object){
+    //console.log(the_object);
+    $('.comment').remove();
+    for (let i = 0; i < the_object.commentId.length; i++) {
+        let commentId = 'comment' + the_object.commentId[i].i
+        $("#commentForm").after($('<div></div>', {
+            id: commentId,
+            class: 'media mb-4 comment'
+        }));
+        $('#' + commentId).append(regularContent);
+        $('#' + commentId + " h5").text(the_object.commentId[i].author);
+        $('#' + commentId + " p").text(the_object.commentId[i].content);
+    }
+}
+function handle_json() {
+    if (req_get.readyState == 4) {
+        if (req_get.status == 200) {
+            let json_data = req_get.responseText; // text download
+            the_object = JSON.parse(json_data); // change text to JSON
+            print_comments(the_object);
+        } else {
+            alert('URL Error');
+        }
+    }
+}
 
 function chooseName() {
     return names[Math.floor(Math.random() * (names.length + 1)) + 0];
 }
 
-function generateObject() {
+async function generateObject() {
+    req_put.open("PUT", url, true);
+    req_put.setRequestHeader("Content-type", "application/json");
+    req_put.setRequestHeader("secret-key", "$2b$10$CwGL6myH0Hc1h3HRcEJHQuwa9u25Q2pT7/6to2MTUnyBoWBk2ClP.");
+    req_put.setRequestHeader("versioning", "false");
     content = $("#comment-content");
-    commentId = '#comment' + i;
-    if (content.val() !== ''){
+    commentId = 'comment' + the_object.commentId.length;
+    if (content.val() !== '') {
         $(".alert").remove();
-        $("#commentForm").after($('<div></div>', {
-            id: 'comment' + i,
-            class: 'media mb-4'
-        }));
-        $(commentId).append(regularContent);
-        $(commentId + " h5").text(chooseName());
-        $(commentId + " p").text(content.val());
-        i++;
+        the_object.commentId.push(JSON.parse(JSON.stringify({i: ''+the_object.commentId.length, author: ''+chooseName(), content: ''+content.val()})));
+        //console.log(the_object);
+        req_put.send(JSON.stringify(the_object));
+        //console.log(promise1);
         content.val('');
-    }
-    else if(!$(".alert").length) $("#commentForm").after(alert);
+    } else if (!$(".alert").length) $("#commentForm").after(alert);
 }
-$("#commentButton").on("click", generateObject);
+$("#commentButton").on("click", ()=>{
+generateObject();
+setTimeout(location.reload.bind(location), 300);
+});
+
+
+
+
