@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   get 'catalog/index'
   get 'about/index'
   get 'homepage/index'
-
+  get 'catalog/show'
   resources :products
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'homepage#index'
 end
