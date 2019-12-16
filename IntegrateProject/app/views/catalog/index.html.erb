@@ -23,50 +23,52 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Bassano</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="catalog.html">Catalog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              FFU
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="portfolio-item.html">Page 1</a>
-              <a class="dropdown-item" href="portfolio-item.html">Page 2</a>
-              <a class="dropdown-item" href="portfolio-item.html">Page 3</a>
-              <a class="dropdown-item" href="portfolio-item.html">Page 4</a>
-              <a class="dropdown-item" href="portfolio-item.html">Page 5</a>
-            </div>
-          </li>
-
+ <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <%= link_to "Bassano", root_path, :class => "navbar-brand"%>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                        <%= link_to "Homepage", homepage_index_path, :class => "nav-link"%>
+            </li>
+            <li class="nav-item">
+                        <%= link_to "About", about_index_path, :class => "nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Catalog", catalog_index_path, :class => "nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Contact", contact_index_path, :class => "nav-link"%>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                FFU
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                <a class="dropdown-item" href="#">Page 1</a>
+                <a class="dropdown-item" href="#">Page 2</a>
+                <a class="dropdown-item" href="#">Page 3</a>
+                <a class="dropdown-item" href="#">Page 4</a>
+                <a class="dropdown-item" href="#">Page 5</a>
+              </div>
+            </li>
 
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-fw fa-user"></i>
+                <i class="fa fa-fw fa-user"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="portfolio-item.html">Login</a>
-                <a class="dropdown-item" href="portfolio-item.html">Register</a>
+                <%= link_to "Login", login_index_path, :class => "dropdown-item"%>
+                <%= link_to "Register", register_index_path, :class => "dropdown-item"%>
               </div>
             </li>
-        </ul>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
   <!-- Page Content -->
   <div class="container">
 
