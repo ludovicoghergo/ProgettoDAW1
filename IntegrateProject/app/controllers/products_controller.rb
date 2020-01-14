@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
   end
   def create
     @product = Product.new(params.require(:product).permit(:title,:category,:description, :price, :quantity))
-
     @product.save
     redirect_to @product
   end

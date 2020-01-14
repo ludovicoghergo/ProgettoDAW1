@@ -4,6 +4,7 @@ class CatalogController < ApplicationController
   end
   def show
     @products = Product.all
-    @catg = Product.find(params[:id])
-  end
+    puts params.inspect
+    @selected = Product.where("category=?",params[:category])
+    end
 end

@@ -25,44 +25,43 @@
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Bassano</a>
+      <%= link_to "Bassano", root_path, :class => "navbar-brand"%>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+                      <%= link_to "About", about_index_path, :class => "nav-link"%>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="catalog.html">Catalog</a>
+            <%= link_to "Catalog", catalog_index_path, :class => "nav-link"%>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <%= link_to "Contact", contact_index_path, :class => "nav-link"%>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               FFU
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="portfolio-item.html">Page 1</a>
-              <a class="dropdown-item" href="portfolio-item.html">Page 2</a>
-              <a class="dropdown-item" href="portfolio-item.html">Page 3</a>
-              <a class="dropdown-item" href="portfolio-item.html">Page 4</a>
-              <a class="dropdown-item" href="portfolio-item.html">Page 5</a>
+              <a class="dropdown-item" href="#">Page 1</a>
+              <a class="dropdown-item" href="#">Page 2</a>
+              <a class="dropdown-item" href="#">Page 3</a>
+              <a class="dropdown-item" href="#">Page 4</a>
+              <a class="dropdown-item" href="#">Page 5</a>
             </div>
           </li>
 
-
-            <li class="nav-item dropdown">
-              <a class="nav-link" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-fw fa-user"></i>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="portfolio-item.html">Login</a>
-                <a class="dropdown-item" href="portfolio-item.html">Register</a>
-              </div>
-            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-fw fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <%= link_to "Login", login_index_path, :class => "dropdown-item"%>
+              <%= link_to "Register", register_index_path, :class => "dropdown-item"%>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -85,46 +84,14 @@
           <a href="catalog_desktop.html"><%= image_tag("/images/imagecat.jpg", class: "card-img-top") %></a>
           <div class="card-body">
             <h4 class="card-title">
-              <%=link_to product.category,catalog_show_path(:id => product.id) %>
+              <%=link_to product.category,catalog_show_path(:category => product.category) %>
             </h4>
             <p class="card-text"></div>
         </div>
       </div>
       <% end %>
     </div>
-
-<!-- Pagination
-    <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-          <span class="sr-only">Previous</span>
-        </a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">1</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">2</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">3</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-          <span class="sr-only">Next</span>
-        </a>
-      </li>
-    </ul>
-
--->
-
-
   </div>
-  <!-- /.container -->
-
-  <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Project DAW 1</title>
+
+    <!-- Bootstrap core CSS -->
+    <% csrf_meta_tags %>
+    <!-- Bootstrap core CSS -->
+    <%= stylesheet_link_tag "modern-business ", media: "all", 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "application", :media => "all", 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag    "application", 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3 text-center">
+        Reserved Access Area
+      </h1>
+
+      <div class="row">
+        <div class="col-lg-12 portfolio-item">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title text-center">
+                <a href="#">Login</a>
+              </h4>
+              <p class="card-text ">
+
+                <%= form_with scope: :product,url: products_path, local: true do |form| %>
+                <p>
+                  <%= form.label :title %><br>
+                  <%= form.text_field :title, :class => "form-control col-lg-3" %>
+                </p>
+
+                <p>
+                  <%= form.label :category %><br>
+                  <%= form.text_field :category, :class => "form-control col-lg-3" %>
+                </p>
+
+                <p>
+                  <%= form.label :description %><br>
+                  <%= form.text_area :description, :class => "form-control col-lg-3" %>
+                </p>
+
+                <p>
+                  <%= form.label :price %><br>
+                  <%= form.text_field :price, :class => "form-control col-lg-3" %>
+                </p>
+
+                <p>
+                  <%= form.label :quantity %><br>
+                  <%= form.text_field :quantity, :class => "form-control col-lg-3" %>
+                </p>
+
+                <p>
+                  <%= form.submit "Load new product",:class => "btn btn-primary" %>
+                </p>
+              <% end %>
+
+              <!-- <form> <div class="form-group"> <label for="LoginInputEmail1">Email address</label> <input type="loginemail" class="form-control" id="LoginInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> </div> <div class="form-group">
+              <label for="LoginInputPassword1">Password</label> <input type="password" class="form-control" id="LoginInputPassword1" placeholder="Password"> </div> <div class="form-group form-check"> <input type="checkbox" class="form-check-input"
+              id="KeepLoginOn"> <label class="form-check-label" for="KeepLoginOn">Keep me on</label> </div> <div class="text-center"> <button type="submit" class="btn btn-primary">Login</button> </div> </form> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
