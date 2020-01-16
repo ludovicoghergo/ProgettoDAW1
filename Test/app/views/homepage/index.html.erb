@@ -55,8 +55,8 @@
                 <i class="fa fa-fw fa-user"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <%= link_to "Login", login_index_path, :class => "dropdown-item"%>
-                <%= link_to "Register", users_new_path, :class => "dropdown-item"%>
+                <%= link_to "Login", sessions_welcome_path, :class => "dropdown-item"%>
+                <%= link_to "Register", sessions_new_path, :class => "dropdown-item"%>
               </div>
             </li>
           </ul>
@@ -169,9 +169,7 @@
         </div>
       </div>
       <!-- /.row -->
-      <% User.all.each do |user| %>
-  <%= user.id %>
-<% end %>
+
       <hr>
 
       <!-- Call to Action Section -->

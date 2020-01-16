@@ -9,7 +9,7 @@ skip_before_action :authorized, only: [:new, :create]
   end
 
   def create
-    @user = User.create(params.require(:user).permit(:fname,:lname,:age,:sex,:username,:email,:city,:state,:zip))
+    @user = User.create(params.require(:user).permit(:fname,:lname,:age,:sex,:username,:email,:password,:city,:state,:zip))
     @user.save
     session[:user_id] = @user.id
     redirect_to '/welcome'

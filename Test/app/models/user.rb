@@ -7,5 +7,7 @@ class User < ApplicationRecord
 #   validates :sex, presence:true
   has_secure_password
   has_many :comments
+  has_many :orders
   has_many :products, through: :comments
+  has_many :products, through: :orders
 end

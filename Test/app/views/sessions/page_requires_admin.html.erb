@@ -70,23 +70,23 @@
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
-      Permission Denied
+      Access Page
     </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Login</li>
+    </ol>
 
     <div class="row">
       <div class="col-lg-12 portfolio-item">
         <div class="card h-100">
           <div class="card-body">
             <h4 class="card-title text-center">
-              <a href="#">Login Needed</a>
+              <a href="#">You need to be admin</a>
             </h4>
-            <p class="card-text text-center">
-              Im sorry but to execute this operation you need to be logged.
-            </p>
-            <div class="text-center">
-              <%= button_to "Sign in", '/welcome', method: :get,:class => 'btn btn-primary'%>
-
-            </div>
           </div>
         </div>
       </div>

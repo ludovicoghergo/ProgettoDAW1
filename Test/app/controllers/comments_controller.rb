@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-skip_before_action :authorized, only: [:new, :create]
+skip_before_action :authorized, :except => [:new, :create]
 def index
   @comments = Comment.all
 end

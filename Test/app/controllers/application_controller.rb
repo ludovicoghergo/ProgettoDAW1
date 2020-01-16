@@ -2,7 +2,11 @@ class ApplicationController < ActionController::API
   before_action :authorized
   helper_method :current_user
   helper_method :logged_in?
-  authorize_resource class: false
+  helper_method :is_admin?
+
+  def is_admin?
+    return current_user.admin
+  end
 
   def current_user
     User.find_by(id: session[:user_id])
@@ -13,14 +17,11 @@ class ApplicationController < ActionController::API
   end
 
   def authorized
-   redirect_to '/welcome' unless logged_in?
+   redirect_to '/login_required' unless logged_in?
   end
 
-  def current_ability
-    @current_ability ||= Samurai::Ability.new(current_user)
-  end
-  rescue_from CanCan::AccessDenied do |exception|
-    render :file => 'static/403.html', :status => 403, :layout => false
+  def auth_admin
+    redirect_to '/admin_auth_required' unless logged_in?
   end
 
 end

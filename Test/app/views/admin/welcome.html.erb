@@ -70,23 +70,48 @@
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
-      Permission Denied
+      Access Page
     </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">Home</a>
+      </li>
+      <li class="breadcrumb-item active">Login</li>
+    </ol>
 
     <div class="row">
       <div class="col-lg-12 portfolio-item">
         <div class="card h-100">
           <div class="card-body">
             <h4 class="card-title text-center">
-              <a href="#">Login Needed</a>
+              <a href="#">Login</a>
             </h4>
-            <p class="card-text text-center">
-              Im sorry but to execute this operation you need to be logged.
-            </p>
-            <div class="text-center">
-              <%= button_to "Sign in", '/welcome', method: :get,:class => 'btn btn-primary'%>
+            <p class="card-text">
+              <% if logged_in? && is_admin? %>
+                <div class="text-center">
+                  <h3>You are Logged In, <%= current_user.username %></h3>
+                </div>
+              <% elsif logged_in? && !is_admin? %>
+              <script type="text/javascript">
+                  window.location.href="/admin_auth_required"
+              </script>
+              <%else%>
+                <%= form_tag '/login_admin' do %>
+                  <div class="form-group">
+                    <label>Username</label>
+                    <%= text_field_tag :username,"", class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                    <label>Password</label>
+                    <%= text_field_tag :password, "", class: 'form-control' %>
+                  </div>
+                  <div class="text-center">
+                    <%= submit_tag "Login",:class => 'btn btn-primary'%>
+                  </div>
+                  <%end%>
+              <%end%>
 
-            </div>
           </div>
         </div>
       </div>

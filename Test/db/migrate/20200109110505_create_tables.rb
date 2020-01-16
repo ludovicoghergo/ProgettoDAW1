@@ -31,5 +31,12 @@ class CreateTables < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
+    create_table :orders do |t|
+      t.integer :quantity
+      t.integer :user_id
+      t.integer :product_id
+      t.timestamps
+    end
+
   end
 end

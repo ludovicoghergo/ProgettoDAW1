@@ -120,8 +120,6 @@
                   <%= submit_tag "Send",:class => 'btn btn-primary'%>
                 </div>
                 <%end%>
-                <%= debug session[:user_id] %>
-                <%= debug @product.id %>
             </div>
             <% @comments.each  do |comment| %>
             <h5 class="card-header"><%= comment.title %></h5>
