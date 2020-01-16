@@ -176,15 +176,17 @@
           </div>
 
           <div class="card my-4">
-            <h5 class="card-header">Buy it now!</h5>
+            <h5 class="card-header text-center">Buy it now!</h5>
             <div class="card-body text-center">
-              Quantity :<a><%= @product.quantity %></a>
-              <br>
-              Cost :<a><%= @product.price %></a>
+              <h5>
+                Quantity: <a><%= @product.quantity %></a>
+              </h5>
+                <br>
+              <h5>
+                Cost: <a><%= @product.price %>$</a>
+              </h5>
             </div>
             <div class="card-footer text-center">
-
-              <a href="#" class="btn btn-primary  btn-lg">Order</a>
               <%= link_to "Buy Now", {:controller => "orders", :action => "buy_now", :user_id => current_user, :product_id => @product.id}, {:class => "btn btn-primary btn-lg"}%>
             </div>
           </div>

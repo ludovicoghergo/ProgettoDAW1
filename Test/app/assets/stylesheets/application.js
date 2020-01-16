@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require bootstrap.bundle.min
 //= require bootstrap
+//= require bootstrap.min
 //= require_tree .
 
 require("@rails/ujs").start()
