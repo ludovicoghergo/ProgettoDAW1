@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get 'catalog/show'
   get 'products/show'
   get 'users/new'
+
+  #Orders
+  get 'buy_now', to:'orders#buy_now'
   #Comments
   post 'comment', to: 'comments#create'
   #Auth errors
