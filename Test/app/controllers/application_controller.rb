@@ -4,6 +4,7 @@ class ApplicationController < ActionController::API
   helper_method :logged_in?
   helper_method :is_admin?
 
+
   def is_admin?
     return current_user.admin
   end
@@ -21,7 +22,7 @@ class ApplicationController < ActionController::API
   end
 
   def auth_admin
-    redirect_to '/admin_auth_required' unless logged_in?
+    redirect_to '/admin_auth_required' unless logged_in? && is_admin?
   end
 
 end

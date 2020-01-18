@@ -15,6 +15,12 @@ skip_before_action :authorized, only: [:new, :create, :show]
     redirect_to '/welcome'
   end
 
+  def update_avatar
+    @user = User.find(session[:user_id])
+    @user.avatar.attach(params[:avatar])
+    @user.save
+  end
+
   def show
     @user = User.find(session[:user_id])
   end

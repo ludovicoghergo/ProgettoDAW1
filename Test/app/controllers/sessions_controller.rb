@@ -20,6 +20,11 @@ class SessionsController < ApplicationController
   def welcome
   end
 
+  def log_out
+    reset_session
+    redirect_to '/welcome'
+  end
+
 
   def login_user
     if create

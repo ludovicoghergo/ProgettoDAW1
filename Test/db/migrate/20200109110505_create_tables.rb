@@ -38,5 +38,13 @@ class CreateTables < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
+    create_table :contacts do |t|
+      t.string :name
+      t.integer :telnumb
+      t.string :email
+      t.string :msg
+      t.timestamps
+    end
+
   end
 end

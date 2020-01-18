@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :orders
   has_many :products, through: :comments
   has_many :products, through: :orders
+  has_one_attached :avatar
 end

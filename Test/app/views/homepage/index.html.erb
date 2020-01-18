@@ -121,28 +121,28 @@
       <div class="row">
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
-            <h4 class="card-header">New Product</h4>
+            <h4 class="card-header"><%= @random_suggestion[0].category%></h4>
             <a href="#"><img class="card-img-top" src="images/home2.jpg" alt=""></a>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
+              <%= link_to "Learn More", catalog_show_path(:category => @random_suggestion[0].category), :class => "btn btn-primary"%>
             </div>
           </div>
         </div>
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
-            <h4 class="card-header">New Product</h4>
+            <h4 class="card-header"><%= @random_suggestion[1].category%></h4>
             <a href="#"><img class="card-img-top" src="images/home2.jpg" alt=""></a>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
+              <%= link_to "Learn More", catalog_show_path(:category => @random_suggestion[1].category), :class => "btn btn-primary"%>
             </div>
           </div>
         </div>
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
-            <h4 class="card-header">New Product</h4>
+            <h4 class="card-header"><%= @random_suggestion[2].category%></h4>
             <a href="#"><img class="card-img-top" src="images/home2.jpg" alt=""></a>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
+              <%= link_to "Learn More", catalog_show_path(:category => @random_suggestion[2].category), :class => "btn btn-primary"%>
             </div>
           </div>
         </div>

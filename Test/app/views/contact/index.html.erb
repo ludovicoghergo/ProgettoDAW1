@@ -8,19 +8,17 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Project Daw1</title>
-
+  <title>Project DAW 1</title>
+  <% csrf_meta_tags %>
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="css/modern-business.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <%= stylesheet_link_tag "modern-business ", media: "all", 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    "application", :media => "all", 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag    "application", 'data-turbolinks-track': 'reload' %>
 
 </head>
 
 <body>
 
-  <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <%= link_to "Bassano", root_path, :class => "navbar-brand"%>
@@ -55,10 +53,17 @@
             <a class="nav-link" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-fw fa-user"></i>
             </a>
+            <% if logged_in? %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <%= link_to "Login", login_index_path, :class => "dropdown-item"%>
-              <%= link_to "Register", register_index_path, :class => "dropdown-item"%>
+              <%= link_to "Your Account", user_show_path, :class => "dropdown-item"%>
+              <%= link_to "Log Out", logout_path, :class => "dropdown-item"%>
             </div>
+            <% else %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <%= link_to "Login", sessions_welcome_path, :class => "dropdown-item"%>
+              <%= link_to "Register", sessions_new_path, :class => "dropdown-item"%>
+            </div>
+            <% end %>
           </li>
         </ul>
       </div>
@@ -74,7 +79,7 @@
 
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="index.html">Home</a>
+        <%= link_to "Home", homepage_index_path%>
       </li>
       <li class="breadcrumb-item active">Contact</li>
     </ol>
@@ -106,41 +111,38 @@
     </div>
     <!-- /.row -->
 
-    <!-- Contact Form -->
-    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
     <div class="row">
       <div class="col-lg-8 mb-4">
-        <h3>Send us a Message (waiting for Ruby&Rails)</h3>
-        <form name="sentMessage" id="contactForm" novalidate>
+        <h3>Send us a Message</h3>
+        <%= form_with scope: :contact ,url: contact_path, local: true do |form| %>
           <div class="control-group form-group">
             <div class="controls">
               <label>Full Name:</label>
-              <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+              <%= form.text_field :name, class: 'form-control'%>
               <p class="help-block"></p>
             </div>
           </div>
           <div class="control-group form-group">
             <div class="controls">
               <label>Phone Number:</label>
-              <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+              <%= form.text_field :telnumb, class: 'form-control'%>
             </div>
           </div>
           <div class="control-group form-group">
             <div class="controls">
               <label>Email Address:</label>
-              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+              <%= form.text_field :email, class: 'form-control'%>
             </div>
           </div>
           <div class="control-group form-group">
             <div class="controls">
               <label>Message:</label>
-              <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+              <%= form.text_area :msg, class: 'form-control'%>
             </div>
           </div>
           <div id="success"></div>
-          <!-- For success/fail messages -->
-          <button type="submit" class="btn btn-primary" id="sendMessageButton">Send Message</button>
-        </form>
+          <%= form.submit 'Send Message', :class => 'btn btn-primary' %>
+        <% end %>
       </div>
 
     </div>
