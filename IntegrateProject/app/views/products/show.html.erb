@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Project DAW 1</title>
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <%= link_to "Bassano", root_path, :class => "navbar-brand"%>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                        <%= link_to "About", about_index_path, :class => "nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Catalog", catalog_index_path, :class => "nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Contact", contact_index_path, :class => "nav-link"%>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                FFU
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                <a class="dropdown-item" href="#">Page 1</a>
+                <a class="dropdown-item" href="#">Page 2</a>
+                <a class="dropdown-item" href="#">Page 3</a>
+                <a class="dropdown-item" href="#">Page 4</a>
+                <a class="dropdown-item" href="#">Page 5</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-fw fa-user"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                <%= link_to "Login", login_index_path, :class => "dropdown-item"%>
+                <%= link_to "Register", register_index_path, :class => "dropdown-item"%>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <h1 class="mt-4 mb-3" id="product_title"></h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="catalog.html">Catalog</a>
+        </li>
+        <li class="breadcrumb-item">
+          <%= link_to @product.category, catalog_show_path(:category => @product.category) %>
+        </li>
+        <li class="breadcrumb-item active"><%= @product.title %></li>
+      </ol>
+
+      <div class="row">
+
+        <div class="col-lg-8">
+
+          <%= image_tag("/images/imagecat.jpg",class: "img-fluid rounded") %>
+
+          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+
+          <blockquote class="blockquote">
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer class="blockquote-footer">Someone famous in
+              <cite title="Source Title">Source Title</cite>
+            </footer>
+          </blockquote>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+
+          <hr>
+
+          <div class="card my-4">
+            <h5 class="card-header">Leave a Comment: (work in progress)</h5>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="media mb-4">
+
+            <div id="motherComment"></div>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <h5 class="card-header">You could like also ...</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="catalog_desktop">Desktop</a>
+                    </li>
+                    <li>
+                      <a href="catalog_laptop">Laptop</a>
+                    </li>
+                    <li>
+                      <a href="catalog_memories">Memories</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="catalog_boards">Boards</a>
+                    </li>
+                    <li>
+                      <a href="catalog_internet">Internet</a>
+                    </li>
+                    <li>
+                      <a href="#">Other ...</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card my-4">
+            <h5 class="card-header">For future use</h5>
+            <div class="card-body text-center">
+              Quantity :<a><%= @product.quantity %></a>
+              <br>
+              Cost :<a><%= @product.price %></a>
+            </div>
+            <div class="card-footer text-center">
+              <a href="#" class="btn btn-primary  btn-lg">Order</a>
+              <a href="#" id="product_buy_button" class="btn btn-primary  btn-lg">Buy Now</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      </div>
+    </footer>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+</html>
