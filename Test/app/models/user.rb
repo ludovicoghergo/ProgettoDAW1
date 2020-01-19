@@ -6,9 +6,10 @@ class User < ApplicationRecord
 #   validates :email, uniqueness: true
 #   validates :sex, presence:true
   has_secure_password
+  has_one_attached :avatar
   has_many :comments
   has_many :orders
   has_many :products, through: :comments
   has_many :products, through: :orders
-  has_one_attached :avatar
+
 end

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   #User Section
   get 'user/show',to:'users#show'
   post 'updateavatar', to: 'users#update_avatar'
+  post 'update',to:'users#update_user'
+  get 'deleteaccount',to:'users#delete_account'
   #Orders
   get 'buy_now', to:'orders#buy_now'
   #Contacts

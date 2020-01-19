@@ -1,5 +1,5 @@
 class AboutController < ApplicationController
-authorize_resource class: true
+skip_before_action :authorized
   def index
   end
 end
