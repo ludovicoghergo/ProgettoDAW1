@@ -30,6 +30,12 @@ Rails.application.routes.draw do
   #Admin Section
   get 'admin', to: 'admin#welcome'
   post 'login_admin', to: 'sessions#login_admin'
+  get 'admin/product', to:'admin#product_manage'
+  get 'admin/deleteproduct', to:'admin#delete_product'
+  get 'admin/user', to:'admin#user_manage'
+  get 'admin/deleteuser', to:'admin#delete_user'
+  get 'admin/order', to:'admin#order_manage'
+  get 'admin/deleteorder', to:'admin#delete_order'
   #Login & SignUp routes
   get 'login', to: 'sessions#new'
   post 'login_user', to: 'sessions#login_user'

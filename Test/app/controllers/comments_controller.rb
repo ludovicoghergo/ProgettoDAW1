@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 skip_before_action :authorized, :except => [:new, :create]
+
 def index
   @comments = Comment.all
 end
@@ -12,6 +13,8 @@ def create
   @comment.save
   redirect_back(fallback_location: root_path)
 end
+
+
 
 
 def show

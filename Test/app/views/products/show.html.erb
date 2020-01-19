@@ -129,12 +129,21 @@
                 <%end%>
             </div>
             <% @comments.each  do |comment| %>
-            <h5 class="card-header"><%= comment.title %></h5>
-            <div class="card-body">
-                <div class="form-group">
-                    <%= comment.text %>
-                </div>
-            </div>
+              <h4 class="card-header">
+              <% if find_author(comment.user_id).avatar.attached? %>
+                <%=image_tag(find_author(comment.user_id).avatar, size: '50x50',class: "rounded-circle img-fluid")%>
+              <% else %>
+                <img src="//placehold.it/50"  class="rounded-circle img-fluid" alt="avatar">
+              <% end %>
+
+                    <%= find_author(comment.user_id).username %>
+                  </h4>
+                  <div class="card-body">
+                    <h5><%= comment.title %></h5>
+                      <div class="form-group">
+                          <%= comment.text %>
+                        </div>
+                      </div>
             <% end %>
 
           </div>
@@ -148,40 +157,6 @@
         </div>
 
         <div class="col-md-4">
-          <div class="card mb-4">
-            <h5 class="card-header">You could like also ...</h5>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="catalog_desktop">Desktop</a>
-                    </li>
-                    <li>
-                      <a href="catalog_laptop">Laptop</a>
-                    </li>
-                    <li>
-                      <a href="catalog_memories">Memories</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="catalog_boards">Boards</a>
-                    </li>
-                    <li>
-                      <a href="catalog_internet">Internet</a>
-                    </li>
-                    <li>
-                      <a href="#">Other ...</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="card my-4">
             <h5 class="card-header text-center">Buy it now!</h5>
             <div class="card-body text-center">

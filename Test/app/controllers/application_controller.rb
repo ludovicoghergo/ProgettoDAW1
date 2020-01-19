@@ -3,7 +3,16 @@ class ApplicationController < ActionController::API
   helper_method :current_user
   helper_method :logged_in?
   helper_method :is_admin?
+  helper_method :find_author
+  helper_method :find_product
 
+  def find_product(id)
+    return  Product.find(id)
+  end
+
+  def find_author(id)
+    return  User.find(id)
+  end
 
   def is_admin?
     return current_user.admin
