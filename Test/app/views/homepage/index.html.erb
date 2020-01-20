@@ -119,6 +119,7 @@
 
       <!-- Marketing Icons Section -->
       <div class="row">
+        <% if !@random_suggestion[0].nil? %>
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
             <h4 class="card-header"><%= @random_suggestion[0].category%></h4>
@@ -128,6 +129,8 @@
             </div>
           </div>
         </div>
+        <% end %>
+        <% if !@random_suggestion[1].nil? %>
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
             <h4 class="card-header"><%= @random_suggestion[1].category%></h4>
@@ -137,6 +140,8 @@
             </div>
           </div>
         </div>
+        <% end %>
+        <% if !@random_suggestion[2].nil? %>
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
             <h4 class="card-header"><%= @random_suggestion[2].category%></h4>
@@ -147,7 +152,7 @@
           </div>
         </div>
       </div>
-      <!-- /.row -->
+      <% end %>
 
       <!-- Features Section -->
       <div class="row">
