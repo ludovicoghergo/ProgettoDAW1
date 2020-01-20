@@ -197,9 +197,9 @@
         <div class="col-lg-4 order-lg-1 text-center">
             <%= form_with(url: "/updateavatar", method: "post") do |form| %>
               <% if @user.avatar.attached? %>
-                <%=image_tag(current_user.avatar, size: '100x100',class: "rounded-circle")%>
+                <%=image_tag(current_user.avatar, size: '150x150',class: "rounded-circle")%>
               <% else %>
-                <img src="//placehold.it/150"  size='100x100' class="rounded-circle" alt="avatar">
+                <img src="//placehold.it/150"   class="rounded-circle" alt="avatar">
               <% end %>
               <h6 class="mt-2">Upload a different photo</h6>
               <%= form.file_field :avatar %>
