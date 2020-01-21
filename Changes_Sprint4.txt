@@ -1,0 +1,16 @@
++Admin feature ( with section & administration)
++Use features (log, shopping, comments)
++Products dynamic
++Comments dynamic & link with user
++Avatar ( use of active records with attachments)
++User section ( profile & delete & edit)
++Permission on every page ( you need permission to be able to do some actions)
++Shopping with log of every sell(with dynamic decrease of product stock)
++Implemented suggestion (they're randomly generated) in the homepage
++Contact staff implemented
++Sessions ( login & logout)
+*Fixed the links broken
+*Fixed the dynamic part in the catalog (now every page will display information only about his page)
+*Fixed the button & the routes
+*Use of 'Devise gem' for encrypted password
+*Fixed the relations schemas
