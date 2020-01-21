@@ -38,6 +38,9 @@
           <li class="nav-item">
             <%= link_to "Order", admin_order_path, :class => "nav-link"%>
           </li>
+          <li class="nav-item">
+            <%= link_to "Contact", admin_contact_path, :class => "nav-link"%>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               FFU
@@ -86,6 +89,7 @@
                   <th>Quantity</th>
                   <th>Services</th>
                 </tr>
+                <% if !@products.nil? %>
                 <% @products.each  do |product| %>
                 <tr>
                   <th><%= product.id %></th>
@@ -95,6 +99,7 @@
                   <th><%= link_to "Delete", admin_deleteproduct_path(:id => product.id)%></th>
                 </tr>
                 <% end %>
+                <%end%>
             </p>
 
           </div>

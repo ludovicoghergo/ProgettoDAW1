@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   get 'admin/deleteuser', to:'admin#delete_user'
   get 'admin/order', to:'admin#order_manage'
   get 'admin/deleteorder', to:'admin#delete_order'
+  get 'admin/contact', to:'admin#contact_manage'
+  get 'admin/deletecontact', to:'admin#delete_contact'
   #Login & SignUp routes
   get 'login', to: 'sessions#new'
   post 'login_user', to: 'sessions#login_user'

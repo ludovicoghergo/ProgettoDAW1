@@ -13,6 +13,10 @@ class AdminController < ApplicationController
     @orders = Order.all
   end
 
+  def order_contact
+    @orders = Contact.all
+  end
+
   def delete_user
     @eliminate = User.find(params[:id])
     @eliminate.destroy
@@ -30,6 +34,12 @@ class AdminController < ApplicationController
     @eliminate = Order.find(params[:id])
     @eliminate.destroy
     redirect_to '/admin/order'
+  end
+
+  def delete_contact
+    @eliminate = Contact.find(params[:id])
+    @eliminate.destroy
+    redirect_to '/admin/contact'
   end
 
 end

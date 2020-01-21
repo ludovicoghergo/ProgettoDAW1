@@ -84,23 +84,21 @@
               <table class='table'>
                 <tr>
                   <th>ID</th>
-                  <th>Username</th>
-                  <th>First name</th>
-                  <th>Last name</th>
-                  <th>Age</th>
-                  <th>email</th>
+                  <th>Author</th>
+                  <th>Telnumb</th>
+                  <th>Email</th>
+                  <th>Text</th>
                   <th>Services</th>
                 </tr>
-                <% if !@users.nil? %>
-                <% @users.each  do |user| %>
+                <% if !@contacts.nil? %>
+                <% @contacts.each  do |contact| %>
                 <tr>
-                  <th><%= user.id %></th>
-                  <th><%= user.username %></th>
-                  <th><%= user.fname %></th>
-                  <th><%= user.lname %></th>
-                  <th><%= user.age %></th>
-                  <th><%= user.email %></th>
-                  <th><%= link_to "Delete", admin_deleteuser_path(:id => user.id)%></th>
+                  <th><%= contact.id %></th>
+                  <th><%= contact.name %></th>
+                  <th><%= contact.telnumb %></th>
+                  <th><%= contact.email %></th>
+                  <th><%= contact.msg %></th>
+                  <th><%= link_to "Delete", admin_deletecontact_path(:id => contact.id)%></th>
                 </tr>
                 <% end %>
                 <%end%>
